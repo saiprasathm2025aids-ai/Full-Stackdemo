@@ -17,7 +17,7 @@ function handlechange(e){
     <>
     <form onSubmit={print}>
         <label>Email </label>
-        <input placeholder="Enter username" required type="text" name="user" onChange={handlechange} />
+        <input placeholder="Enter username." required type="text" name="user" onChange={handlechange} />
     
         <label>Password </label>
         <input placeholder="Enter Password" required type="password" name="pass" onChange={handlechange} />
