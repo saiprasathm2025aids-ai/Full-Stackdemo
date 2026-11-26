@@ -1,30 +1,31 @@
 import { useState } from "react";
 
+function Login(){
+    const navigate=useNavigate();
+    const[formdata,setFormdata]=useState({user:"",pass:""})
 
-function Login() {
-    const[email, setEmail] = useState("")
-  const[pass, setPass] = useState("")
-  const handlesubmit = (event)=>{
-    event.preventDefalut();
-    console.log(email, pass)
-  }
-    return ( 
-    <>
-      <div>Hi</div>
-      {/*}
-      <input type="email" required placeholder="Enter your email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-      <input type="password" required placeholder="Enter your password" value={pass} onChange={(e)=>{setPass(e.target.value)} }/>
-      <button type="submit" onClick={()=>console.log(email,pass)}>Submit</button>
-      <button type="submit" onClick={()=>print()}>Submit</button>
-      */}
-      <form onSubmit={handlesubmit}>
-        <input type="email" required placeholder="Enter your email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-        <input type="password" required placeholder="Enter your password" value={pass} onChange={(e)=>{setPass(e.target.value)} }/>
-        <button type="submit" >Submit</button>
-      </form>
-    </>
-    
-     );
+    const print = (e)=>{
+        e.preventDefault();
+        console.log(formdata)
+        alert("Login Succesfully")
+    };
+function handlechange(e){
+    e.preventDefault();
+    setFormdata({...formdata,[e.target.name]:e.target.value})
 }
+    return( 
+    <>
+    <form onSubmit={print}>
+        <label>Email </label>
+        <input placeholder="Enter username" required type="text" name="user" onChange={handlechange} />
+    
+        <label>Password </label>
+        <input placeholder="Enter Password" required type="password" name="pass" onChange={handlechange} />
 
+        <button type="submit">Submit</button>
+    </form>
+ 
+    </>
+    );
+}
 export default Login;
